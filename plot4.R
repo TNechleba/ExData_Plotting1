@@ -43,7 +43,8 @@ geom_step() +
 scale_x_datetime(breaks = c(min, med, max),
     labels = c("Thu","Fri","Sat")) +
 ylab("Global Active Power (kilowatts)") + 
-theme(axis.title.x = element_blank(),
+xlab("") + 
+theme(
     panel.border = element_rect(linetype = "solid", colour = "black", fill = NA),
     panel.background = element_rect(fill = NA),
     plot.margin = unit(c(0.5,0.5,0.5,0.5), "cm"))
@@ -54,8 +55,9 @@ TR <- ggplot(data_mod, aes(x = DateTime, y = Voltage)) +
 geom_step() + 
 scale_x_datetime(breaks = c(min, med, max),
     labels = c("Thu","Fri","Sat")) +
-ylab("Voltage") + 
-theme(axis.title.x = element_blank(),
+ylab("Voltage") +
+xlab("datetime") + 
+theme(
     panel.border = element_rect(linetype = "solid", colour = "black", fill = NA),
     panel.background = element_rect(fill = NA),
     plot.margin = unit(c(0.5,0.5,0.5,0.5), "cm"))
@@ -67,7 +69,8 @@ geom_step(data = data_mod,
     aes(x = DateTime, y = Sub_metering_1, colour = "black")) + 
 scale_x_datetime(breaks = c(min, med, max),
     labels = c("Thu","Fri","Sat")) +
-ylab("Energy sub metering") + 
+ylab("Energy sub metering") +
+xlab("") + 
 geom_step(data = data_mod, 
     aes(x = DateTime, y = Sub_metering_2, colour = "red")) +
 geom_step(data = data_mod, 
@@ -76,7 +79,7 @@ scale_color_identity(name = element_blank(),
     breaks = c("black", "red", "blue"),
     labels = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
     guide = "legend") +
-theme(axis.title.x = element_blank(),
+theme(
     panel.border = element_rect(linetype = "solid", colour = "black", fill = NA),
     panel.background = element_rect(fill = NA),
     legend.position = c(0.7,0.8),
@@ -89,10 +92,12 @@ geom_step() +
 scale_x_datetime(breaks = c(min, med, max),
     labels = c("Thu","Fri","Sat")) +
 ylab("Global Reactive Power (kilowatts)") + 
-theme(axis.title.x = element_blank(),
+xlab("datetime") + 
+theme(
     panel.border = element_rect(linetype = "solid", colour = "black", fill = NA),
     panel.background = element_rect(fill = NA),
     plot.margin = unit(c(0.5,0.5,0.5,0.5), "cm"))
+
 
    
 
